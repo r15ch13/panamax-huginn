@@ -19,7 +19,7 @@ images:
     proto: TCP
   environment:
   - variable: MYSQL_DATABASE
-    value: huginn_production
+    value: huginn
   - variable: MYSQL_USER
     value: huginn
   - variable: MYSQL_PASSWORD
@@ -43,3 +43,9 @@ images:
   environment:
   - variable: RAILS_ENV
     value: production
+  - variable: DATABASE_NAME
+    value: huginn
+  - variable: DATABASE_USERNAME
+    value: huginn
+  - variable: DATABASE_PASSWORD
+    value: myhuginnpassword

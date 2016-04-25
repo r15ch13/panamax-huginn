@@ -5,8 +5,8 @@ keywords: ''
 type: Default
 documentation: ''
 images:
-- name: huginn_mariadb
-  source: mariadb:latest
+- name: huginn_mysql
+  source: centurylink/mysql:latest
   category: DB Tier
   type: Default
   ports:
@@ -19,24 +19,22 @@ images:
   - variable: MYSQL_USER
     value: huginn
   - variable: MYSQL_PASSWORD
-    value: du1KmLHYNLyrNUVJr1uW
+    value: myhuginnpassword
   - variable: MYSQL_ROOT_PASSWORD
-    value: se3r05p6TzYqpz_377zr
-- name: huginn
+    value: myhuginnpassword
+- name: huginn_web
   source: cantino/huginn:latest
   category: Web App
   type: Default
   ports:
   - host_port: '40001'
-    container_port: '3000'
+    container_port: '5001'
     proto: TCP
   links:
-  - service: huginn_mariadb
-    alias: huginn_mariadb_1
+  - service: huginn_mysql
+    alias: huginn_mysql_1
   environment:
-  - variable: HUGINN_DATABASE_NAME
-    value: huginn
-  - variable: HUGINN_DATABASE_USERNAME
-    value: huginn
-  - variable: HUGINN_DATABASE_PASSWORD
-    value: se3r05p6TzYqpz_377zr
+  - variable: PORT
+    value: '5001'
+  - variable: RAILS_ENV
+    value: production

@@ -5,7 +5,7 @@ keywords: ''
 type: Default
 documentation: ''
 images:
-- name: mariadb
+- name: huginn_mariadb
   source: mariadb:latest
   category: DB Tier
   type: Default

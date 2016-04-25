@@ -10,8 +10,8 @@ images:
   category: DB Tier
   type: Default
   ports:
-  - host_port: '40002'
-    container_port: '3306'
+  - host_port: 3306
+    container_port: 3306
     proto: TCP
   environment:
   - variable: MYSQL_DATABASE
@@ -27,14 +27,12 @@ images:
   category: Web App
   type: Default
   ports:
-  - host_port: '40001'
-    container_port: '5001'
+  - host_port: '5000'
+    container_port: '3000'
     proto: TCP
   links:
   - service: huginn_mysql
     alias: huginn_mysql_1
   environment:
-  - variable: PORT
-    value: '5001'
   - variable: RAILS_ENV
     value: production

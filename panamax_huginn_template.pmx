@@ -5,6 +5,23 @@ keywords: ''
 type: Default
 documentation: ''
 images:
+- name: mariadb
+  source: mariadb:latest
+  category: DB Tier
+  type: Default
+  ports:
+  - host_port: '40002'
+    container_port: '3306'
+    proto: TCP
+  environment:
+  - variable: MYSQL_DATABASE
+    value: huginn
+  - variable: MYSQL_USER
+    value: huginn
+  - variable: MYSQL_PASSWORD
+    value: du1KmLHYNLyrNUVJr1uW
+  - variable: MYSQL_ROOT_PASSWORD
+    value: se3r05p6TzYqpz_377zr
 - name: huginn
   source: cantino/huginn:latest
   category: Web App
@@ -19,24 +36,7 @@ images:
   environment:
   - variable: HUGINN_DATABASE_NAME
     value: huginn
-  - variable: HUGINN_DATABASE_PASSWORD
-    value: se3r05p6TzYqpz_377zr
   - variable: HUGINN_DATABASE_USERNAME
     value: huginn
-- name: mariadb
-  source: mariadb:latest
-  category: DB Tier
-  type: Default
-  ports:
-  - host_port: '40002'
-    container_port: '3306'
-    proto: TCP
-  environment:
-  - variable: MYSQL_ROOT_PASSWORD
+  - variable: HUGINN_DATABASE_PASSWORD
     value: se3r05p6TzYqpz_377zr
-  - variable: MYSQL_PASSWORD
-    value: du1KmLHYNLyrNUVJr1uW
-  - variable: MYSQL_USER
-    value: huginn
-  - variable: MYSQL_DATABASE
-    value: huginn
